@@ -10,14 +10,6 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 		#'上の子であるディスクのデータを全て取得'
 		@disks = @item.disks
-		#ここから下はviewに記述
-		@disks each do |disk|
-		#'上の子である曲のデータをそれぞれ取得'
-		  songs = disk.songs
-		  songs each do |song|
-		  	#ここで曲の名前を表示
-		  end
-		end
 	end
 
 end
