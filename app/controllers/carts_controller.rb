@@ -13,14 +13,14 @@ class CartsController < ApplicationController
 		#'カートのDBが持ちたいユーザーIDを送信データに加える'
 		@cart.user_id = current_user.id
 		#'数量が0以上なら'
-		if @cart.qty > 0
+		if @cart.quantity > 0
 			#'カート一件のデータを保存'
 			@cart.save
 			#'カートのindexにリダイレクト'
 			redirect_to carts_path
 		else
-			#'ページを更新'
-			render :show
+			#'itemのindexにリダイレクト'
+			redirect_to items_path
 		end
 	end
 
@@ -28,7 +28,7 @@ class CartsController < ApplicationController
 		#'編集したいカートのデータを取得'
 		@cart = Cart.find(params[:id])
 		#'商品の個数が0より大きいなら'
-		if @cart.qty > 0
+		if @cart.quantity > 0
 			#'送信された情報を元にカートのデータを更新'
 			@cart.update(cart_params)
 		#'0なら'
@@ -46,6 +46,12 @@ class CartsController < ApplicationController
 		cart.destroy
 		#'ページを更新'
 		render :index
+	end
+
+	private
+		def cart_params
+			params.require(:cart).permit(:user_id, :item_id, :quantity)
+		end
 	end
 
 end

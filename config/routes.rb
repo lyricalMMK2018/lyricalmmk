@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => 'users/registrations'}
-  get '/index' => 'items#index'
+  root :to => 'items#index'
   get '/:id' => 'items#show'
   get '/myPage' => 'users#show'
   get '/cart' => 'carts#index'

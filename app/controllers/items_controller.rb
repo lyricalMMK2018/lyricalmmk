@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
+	skip_before_action :authenticate_user!
+
 	def index
 		#'全ての商品のデータを取得'
-		@items = Item.all
 		@items_page= Item.page(params[:page]).reverse_order
 	end
 
@@ -12,4 +13,9 @@ class ItemsController < ApplicationController
 		@disks = @item.disks
 	end
 
+	private
+		def item_params
+			params.require(:item).permit(:item_name, :label, :jacket_image_id, :genre_id, :artist_id, :price, :stock, :admin_id, :delete_flag)
+		end
+	end
 end
