@@ -36,12 +36,13 @@ ActiveRecord::Schema.define(version: 20180121113206) do
   create_table "disks", force: :cascade do |t|
     t.integer "item_id"
     t.string "disk_name"
+    t.integer "disk_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "genre_name"
+    t.string "genre_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -73,7 +74,7 @@ ActiveRecord::Schema.define(version: 20180121113206) do
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
     t.string "phone"
-    t.integer "zip_code"
+    t.string "zip_code"
     t.string "address"
     t.string "firstname"
     t.string "lastname"
@@ -107,7 +108,7 @@ ActiveRecord::Schema.define(version: 20180121113206) do
     t.string "lastname"
     t.string "firstname_kana"
     t.string "lastname_kana"
-    t.integer "zip_code"
+    t.string "zip_code"
     t.string "address"
     t.string "phone"
     t.integer "gender"

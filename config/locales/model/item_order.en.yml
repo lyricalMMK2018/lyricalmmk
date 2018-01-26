@@ -2,7 +2,7 @@ en:
   enums:
     item_order:
       delivery_status:
-        purchased: Sending inquiry to Delivery Center
+        purchased: Preparing for Delivery
         ready: Ready for Delivery
         departed: Departed from Delivery Center
         delivered: Delivered

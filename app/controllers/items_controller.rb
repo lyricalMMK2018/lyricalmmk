@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
 	def index
 		#'全ての商品のデータを取得'
-		@items_page= Item.page(params[:page]).reverse_order
+		@items= Item.page(params[:page]).reverse_order
 	end
 
 	def show
@@ -11,6 +11,13 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 		#'上の子であるディスクのデータを全て取得'
 		@disks = @item.disks
+	end
+
+	def search
+		#Itemsコントローラーの範囲内での検索機能は、ransackのAdvanced Modeを使ってください
+		@q = Item.ransack(params[:q])
+		@items = @q.result.includes(:genre, :artist).page(params[:page])
+		render :index
 	end
 
 	private

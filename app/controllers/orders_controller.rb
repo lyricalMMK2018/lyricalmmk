@@ -25,6 +25,8 @@ class OrdersController < ApplicationController
 			item_order.save
 			cart.destroy
 		end
+		#-- !Thank you --
+		redirect_to orders_path, alert: 'Thank you for trading with us!'
 	end
 
 	private

@@ -41,9 +41,9 @@ class CartsController < ApplicationController
 
 	def destroy
 		#'削除したいカートのデータを取得'
-		cart = Cart.find(params[:id])
+		@cart = Cart.find(params[:id])
 		#'カートのデータ一件を削除'
-		cart.destroy
+		@cart.destroy
 		#'ページを更新'
 		render :index
 	end

@@ -2,8 +2,9 @@ class CreateDisks < ActiveRecord::Migration[5.1]
   def change
     create_table :disks do |t|
 
-    	t.integer :item_id
-    	t.string :disk_name
+    	t.integer :item_id, null: false, index: true
+    	t.string :disk_name, null: false, index: true
+    	t.integer :disk_number, null: false
 
       t.timestamps
     end
