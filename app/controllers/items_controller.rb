@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
 	def search
 		#Itemsコントローラーの範囲内での検索機能は、ransackのAdvanced Modeを使ってください
 		@q = Item.ransack(params[:q])
-		@items = @q.result.includes(:genre, :artist).page(params[:page])
+		@items = @q.result.includes(:genre, :artist, :disk, :song).page(params[:page])
 		render :index
 		#indexページにおいて、@itemsはItemを全件取得しますが、searchメソッドをindexから実行した場合
 		#@itemsで参照する値を検索結果に置き換えて、indexページを更新させます

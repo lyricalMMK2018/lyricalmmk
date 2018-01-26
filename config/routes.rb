@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/basket' => 'carts#index', as: :carts
   get '/purchase_history' => 'orders#index', as: :orders
   match 'search' => 'item#search', via: [:get, :post], as: :search_items
-  #resources :items, except: [:index, :show, :edit, :new, :create, :update, :destroy] do
+  #resources :items, only: :show do
    # collection do
    #   match 'search' => 'item#search', via: [:get, :post], as: :search
    # end
