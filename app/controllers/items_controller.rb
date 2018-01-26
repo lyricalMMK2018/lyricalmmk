@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 		#'上の子であるディスクのデータを全て取得'
 		@disks = @item.disks
+		#Viewでは@disks each do |disk|、songs = disk.songs、songs each do |song|
 	end
 
 	def search
@@ -18,6 +19,8 @@ class ItemsController < ApplicationController
 		@q = Item.ransack(params[:q])
 		@items = @q.result.includes(:genre, :artist).page(params[:page])
 		render :index
+		#indexページにおいて、@itemsはItemを全件取得しますが、searchメソッドをindexから実行した場合
+		#@itemsで参照する値を検索結果に置き換えて、indexページを更新させます
 	end
 
 	private
