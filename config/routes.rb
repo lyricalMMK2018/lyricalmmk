@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => 'users/registrations'}
   root :to => 'items#index'
-  get '/:id' => 'items#show'
-  get '/myPage' => 'users#show'
-  get '/cart' => 'carts#index'
-  get '/purchase_history' => 'orders#index'
-  resources :items, only: [:index, :show] do
-    collection do
-      match 'search' => 'item#search', via: [:get, :post], as: :search
-    end
-  end
-  resources :users, only: :show
-  resources :carts, only: [:index, :create, :update, :destroy]
-  resources :orders, only: [:index, :create]
+  get '' => 'items#index', as: :items
+  get '/:id' => 'items#show', as: :item
+  get '/myPage' => 'users#show', as: :user
+  get '/basket' => 'carts#index', as: :carts
+  get '/purchase_history' => 'orders#index', as: :orders
+  match 'search' => 'item#search', via: [:get, :post], as: :search_items
+  #resources :items, except: [:index, :show, :edit, :new, :create, :update, :destroy] do
+   # collection do
+   #   match 'search' => 'item#search', via: [:get, :post], as: :search
+   # end
+  #end
+  resources :carts, only: [:create, :update, :destroy]
+  resources :orders, only: [:create]
 end
