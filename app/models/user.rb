@@ -11,12 +11,12 @@ class User < ApplicationRecord
 
          # ensure user account is active
          def active_for_authentication?
-         	super && !deleted_flag
+         	super && !delete_flag
          end
 
 		# provide a custom message for a deleted account
 		def inactive_message
-			!deleted_flag ? super : :deleted_account
+			!delete_flag ? super : :deleted_account
 		end
 
         has_many :carts
@@ -29,10 +29,11 @@ class User < ApplicationRecord
         validates :firstname, presence: true, length: { maximum: 128 }
         validates :lastname, presence: true, length: { maximum: 128 }
         validates :firstname_kana, presence: true, length: { maximum: 128 }
+        #validates_format_of :firstname_kana, with: /^[ァ-ンー－]+$/
         validates :lastname_kana, presence: true, length: { maximum: 128 }
+        #validates_format_of :lastname_kana, with: /^[ァ-ンー－]+$/
         validates :zip_code, presence: true, numericality: true, length: { is: 7 }
         validates :address, presence: true, length: { maximum: 128 }
         validates :phone, presence: true, numericality: true, length: { in: 10..11 }
-        validates :gender, presence: true, numericality: true
         validates :age, presence: true, numericality: { less_than: 128 }
 end
