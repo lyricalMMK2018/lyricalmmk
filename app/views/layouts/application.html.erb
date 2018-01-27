@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Lyricalmmk</title>
-    <%= csrf_meta_tags %>
+<head>
+	<title>Lyricalmmk</title>
+	<%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+	<header class="navbar navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<nav class="nav2 navbar-nav navbar-left">
+				<span class="glyphicon glyphicon-heart-empty">MMK</span>
+			</nav>
+			<nav>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a class="glyphicon" href=""><b>◯◯◯, Welcome!</b></a></li>
+					<li><a class="glyphicon glyphicon-cd" href="">CD</a></li>
+					<li><a class="glyphicon glyphicon-user" href="">MyPage</a></li>
+					<li><a class="glyphicon glyphicon-shopping-cart" href="">Cart</a></li>
+					<li><a class="glyphicon glyphicon-log-out" href="">Logout</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<%= yield %>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-3 col-xs-offset-10">
+					<p>CopyRight &copy;lyrical MMK</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+
+
 </html>
