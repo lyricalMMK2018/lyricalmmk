@@ -8,9 +8,9 @@ class ItemsController < ApplicationController
 
 	def show
 		#'URLで指定されたITEM IDを持つデータを取得'
-		@item = Item.find(params[:id])
+		#'@item = Item.find(params[:id])'
 		#'上の子であるディスクのデータを全て取得'
-		@disks = @item.disks
+		#'@disks = @item.disks'
 		#Viewでは@disks each do |disk|、songs = disk.songs、songs each do |song|
 	end
 
@@ -27,5 +27,5 @@ class ItemsController < ApplicationController
 		def item_params
 			params.require(:item).permit(:item_name, :label, :jacket_image_id, :genre_id, :artist_id, :price, :stock, :admin_id, :delete_flag)
 		end
-	end
+
 end

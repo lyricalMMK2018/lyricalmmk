@@ -33,6 +33,6 @@ class OrdersController < ApplicationController
 		def order_params
 			params.require(:order).permit(:user_id, :phone, :zip_code, :address, :firstname, :lastname, :delete_flag)
 		end
-	end
+
 
 end

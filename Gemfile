@@ -57,7 +57,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'devise'
-gem 'bootstrap', '~> 4.0.0'
+
+gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'ransack', github: 'activerecord-hackery/ransack'
