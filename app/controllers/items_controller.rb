@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
 	def index
 		#'全ての商品のデータを取得'
 		@items= Item.page(params[:page]).reverse_order
+        Rails.logger.info("----------------------------------------------きたよ")
 	end
 
 	def show

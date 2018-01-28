@@ -1,0 +1,45 @@
+<div class="body">
+	<div class="container">
+		<p id="notice"></p>
+
+		<h2>User info</h2>
+		<div class="row">
+			<div class="col-md-12" style="border: 1px solid #ddd; border-radius: 4px;">
+				<div class="row" style= "margin: 15px auto;">
+					<div class="col-md-2"></div>
+					<div class="col-md-2  " style="text-align: left;">
+						<b><p>Kana</p></b>
+						<b><p>Name</p></b>
+						<b><p>Gender</p></b>
+						<b><p>Age</p></b>
+						<b><p>Zip_Code</p></b>
+						<b><p>Address</p></b>
+						<b><p>Phone Number</p></b>
+						<b><p>Email</p></b>
+						</div>
+					<div class="col-md-1"></div>
+					<div class="col-md-7 " style="text-align: left;">
+						<b><p><%= current_user.lastname_kana %> <%= current_user.firstname_kana %></p></b>
+						<b><p><%= current_user.lastname %> <%= current_user.firstname %></p></b>
+						<b><p><%= current_user.gender %></p></b>
+						<b><p><%= current_user.age %></p></b>
+						<b><p><%= current_user.zip_code %></p></b>
+						<b><p><%= current_user.address %></p></b>
+						<b><p><%= current_user.phone %></p></b>
+						<b><p><%= current_user.email %></p></b>
+					</div>
+					<div class="row">
+						<div class="col-md-12" style="text-align: left;">
+							<%=link_to "UserEdit", edit_user_registration_path, class: "col-xs-2 btn btn-default glyphicon glyphicon-wrench"%>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 col-md-offset-5 " style= "padding-top: 15px;">
+					<%=link_to "Purchase history", orders_path, class: "col-xs-2 btn btn-info"%>
+				</div>
+			</div>
+
+		</div>
+	</div>
