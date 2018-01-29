@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :registrations => 'users/registrations'}
+  devise_for :users, :controllers => {
+   :registrations => 'users/registrations',
+   :sessions => 'users/sessions'
+ }
   root to: 'items#index'
   # get '' => 'items#index', as: :items
   get '/item/:id' => 'items#show', as: :item

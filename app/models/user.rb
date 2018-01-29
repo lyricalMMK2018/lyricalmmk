@@ -25,7 +25,8 @@ class User < ApplicationRecord
         enum gender: { Male: 0, Female: 1, Secret: 2 }
 
         validates :email, presence: true, length: { in: 4..256 }
-        validates :password, presence: true, length: { in: 6..128 }
+        # validates :password, presence: true, length: { in: 6..128 }
+        # パスワードにバリデーションはダメです
         validates :firstname, presence: true, length: { maximum: 128 }
         validates :lastname, presence: true, length: { maximum: 128 }
         validates :firstname_kana, presence: true, length: { maximum: 128 }

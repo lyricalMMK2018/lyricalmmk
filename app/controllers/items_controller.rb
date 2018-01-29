@@ -28,5 +28,4 @@ class ItemsController < ApplicationController
 		def item_params
 			params.require(:item).permit(:item_name, :label, :jacket_image_id, :genre_id, :artist_id, :price, :stock, :admin_id, :delete_flag)
 		end
-
 end
