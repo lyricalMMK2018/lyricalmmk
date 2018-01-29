@@ -1,29 +1,87 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="body">
+  <div class="container">
+    <p id="notice"></p>
+
+    <h2>Sign up</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">
+      <label for="user_firstnamekana">FirstName_Kana</label><br>
+      <%= f.text_field  :firstname_kana, id: "inputFirstnamekana" %>
+    </div>
+
+    <div class="field">
+      <label for="user_lastnamekana">LastName_Kana</label><br>
+      <%= f.text_field  :lastname_kana, id: "inputLastnamekana" %>
+    </div>
+
+    <div class="field">
+      <label for="user_firstname">FirstName</label><br>
+      <%= f.text_field  :firstname, id: "inputFirstname" %>
+    </div>
+
+    <div class="field">
+      <label for="user_lastname">LastName</label><br>
+      <%= f.text_field  :lastname, id: "inputLastname" %>
+    </div>
+
+    <div class="field">
+      <label for="user_gender">Gender</label><br>
+      <%= f.select :gender, User.genders.keys.map {|k| [k, k]} %>
+    </div>
+
+    <div class="field">
+      <label for="user_age">Age</label><br>
+      <%= f.text_field  :age, id: "inputAge" %>
+    </div>
+
+
+
+    <br>
+    <div class="field">
+      <label for="user_zipcode">Zip_Code</label>
+      <em>(Please do not include the hyphen)</em><br>
+      <%= f.text_field  :zip_code, id: "inputZipcode" %>
+    </div>
+
+    <div class="field">
+      <label for="user_address">Address</label><br>
+      <%= f.text_field  :address, id: "inputAddress" %>
+    </div>
+
+    <div class="field">
+      <label for="user_phone">Phone Number</label>
+      <em>(Please do not include the hyphen)</em><br>
+      <%= f.telephone_field :phone, id: "inputPhone" %>
+    </div>
+
+    <div class="field">
+      <label for="user_email">Email</label><br>
+      <%= f.email_field :email, id: "inputEmail" %>
+    </div>
+
+    <div class="field">
+      <label for="user_password">Password</label>
+      <em>(6 characters minimum)</em>
+      <br>
+      <%= f.password_field :password, autocomplete: "off", id:"inputPassword" %>
+    </div>
+
+    <div class="field">
+      <label for="user_password_confirmation">Password confirmation</label><br>
+      <%= f.password_field :password_confirmation, autocomplete: "off", id:"inputConfirmPassword" %>
+    </div>
+
+    <%= f.submit "Sign up", class: "btn btn-success actions" %>
+
+    <% end %>
+
+    <a href="/users/sign_in">Log in</a><br>
+
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>

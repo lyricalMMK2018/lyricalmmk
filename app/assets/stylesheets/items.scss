@@ -1,3 +1,26 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* 商品一覧のメインビジュアルの背景と文字と位置の調整 */
+.top-message {
+margin-top: 51px;
+background-image: image-url("marble.jpeg");
+color: white;
+text-shadow: 1px 1px 1px #000;
+}
+/* 商品一覧のページャの位置の調整 */
+.pagination {
+text-align: center;
+}
+.pagination p {
+display: inline-block;
+width: 30px;
+height: 30px;
+margin: 0 5px;
+color: #fff;
+background-color: #acabab;
+border-radius: 3px;
+line-height: 30px;
+}
