@@ -76,13 +76,13 @@ ActiveRecord::Schema.define(version: 20180126152543) do
 
   create_table "items", force: :cascade do |t|
     t.string "item_name", null: false
-    t.string "jacket_image_id", null: false
+    t.string "jacket_image_id"
     t.string "label", null: false
     t.integer "genre_id", null: false
     t.integer "artist_id", null: false
     t.integer "price", null: false
     t.integer "stock", null: false
-    t.integer "admin_id", null: false
+    t.integer "admin_id"
     t.boolean "delete_flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -110,12 +110,12 @@ ActiveRecord::Schema.define(version: 20180126152543) do
     t.string "song_name", null: false
     t.time "song_length", null: false
     t.integer "track_number", null: false
-    t.integer "disc_id", null: false
+    t.integer "disk_id", null: false
     t.integer "artist_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_songs_on_artist_id"
-    t.index ["disc_id"], name: "index_songs_on_disc_id"
+    t.index ["disk_id"], name: "index_songs_on_disk_id"
     t.index ["song_name"], name: "index_songs_on_song_name"
   end
 
@@ -134,9 +134,9 @@ ActiveRecord::Schema.define(version: 20180126152543) do
     t.string "lastname", null: false
     t.string "firstname_kana", null: false
     t.string "lastname_kana", null: false
-    t.string "zip_code", null: false
-    t.string "address", null: false
-    t.string "phone", null: false
+    t.string "zip_code"
+    t.string "address"
+    t.string "phone"
     t.integer "gender", null: false
     t.integer "age", null: false
     t.boolean "delete_flag"

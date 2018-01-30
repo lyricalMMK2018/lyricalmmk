@@ -36,9 +36,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :lastname, null: false, index: true
       t.string :firstname_kana, null: false, index: true
       t.string :lastname_kana, null: false, index: true
-      t.string :zip_code, null: false
-      t.string :address, null: false
-      t.string :phone, null: false, index: true
+      t.string :zip_code
+      t.string :address
+      t.string :phone, index: true
       t.integer :gender, null: false
       t.integer :age, null: false
       t.boolean :delete_flag
