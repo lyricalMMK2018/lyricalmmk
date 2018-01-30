@@ -3,14 +3,53 @@
 					<!-- メインビジュアル -->
 					<div class="row">
 						<div class="top-message col-md-12" style="text-align:center">
-							<h1>lyrical <strong>MMK</stong></h1>
+							<h1  style="margin: 20px auto;">lyrical <strong>MMK</stong></h1>
+							</div><!-- end メインビジュアル-->
+						</div>
+
+						<div class="row">
+							<!-- 任意のID指定。クラスとデータ属性の指定。 -->
+							<div id="carousel-example" class="carousel slide " data-ride="carousel" data-interval="5000">
+								<!-- インジケーターの設置。下部の○●ボタン。 -->
+								<ol class="carousel-indicators">
+									<li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+									<li data-target="#carousel-example" data-slide-to="1"></li>
+									<li data-target="#carousel-example" data-slide-to="2"></li>
+									<li data-target="#carousel-example" data-slide-to="3"></li>
+								</ol>
+
+								<!-- スライドの内容 -->
+								<div class="carousel-inner">
+									<div class="item active">
+										<%= image_tag "miura950x280.jpg", :width=>'100%' %>
+									</div>
+									<div class="item">
+										<%= image_tag "amuro950x280.jpg", :width=>'100%' %>
+									</div>
+									<div class="item">
+										<%= image_tag "hoshino950x280.jpg", :width=>'100%' %>
+									</div>
+									<div class="item">
+										<%= image_tag "sym950x280.jpg", :width=>'100%' %>
+									</div>
+
+								</div>
+
+								<!-- 左右の移動ボタン -->
+								<a class="left carousel-control" href="#carousel-example" data-slide="prev">
+									<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								</a>
+								<a class="right carousel-control" href="#carousel-example" data-slide="next">
+									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								</a>
 							</div>
-						</div><!-- end メインビジュアル-->
+						</div>
+
 
 
 						<!-- CD陳列棚 -->
 						<div class="row">
-							<div class="col-md-12" style="background-color: black;margin-top: 51px;">
+							<div class="col-md-12" style="background-color: black;">
 								<!-- 検索フォーム -->
 								<div class="row">
 									<div class="col-md-1" style="line-height: 34px;margin: 15px 0;text-align:right;font-size: 20px;color: white;">
