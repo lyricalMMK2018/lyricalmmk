@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20180126152543) do
     t.integer "artist_id", null: false
     t.integer "price", null: false
     t.integer "stock", null: false
-    t.integer "admin_id", null: false
+    t.integer "admin_id"
     t.boolean "delete_flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
