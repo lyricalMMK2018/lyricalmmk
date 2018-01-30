@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20180126152543) do
 
   create_table "items", force: :cascade do |t|
     t.string "item_name", null: false
-    t.string "jacket_image_id", null: false
+    t.string "jacket_image_id"
     t.string "label", null: false
     t.integer "genre_id", null: false
     t.integer "artist_id", null: false
@@ -110,12 +110,12 @@ ActiveRecord::Schema.define(version: 20180126152543) do
     t.string "song_name", null: false
     t.time "song_length", null: false
     t.integer "track_number", null: false
-    t.integer "disc_id", null: false
+    t.integer "disk_id", null: false
     t.integer "artist_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_songs_on_artist_id"
-    t.index ["disc_id"], name: "index_songs_on_disc_id"
+    t.index ["disk_id"], name: "index_songs_on_disk_id"
     t.index ["song_name"], name: "index_songs_on_song_name"
   end
 
@@ -134,9 +134,9 @@ ActiveRecord::Schema.define(version: 20180126152543) do
     t.string "lastname", null: false
     t.string "firstname_kana", null: false
     t.string "lastname_kana", null: false
-    t.string "zip_code", null: false
-    t.string "address", null: false
-    t.string "phone", null: false
+    t.string "zip_code"
+    t.string "address"
+    t.string "phone"
     t.integer "gender", null: false
     t.integer "age", null: false
     t.boolean "delete_flag"
@@ -147,7 +147,6 @@ ActiveRecord::Schema.define(version: 20180126152543) do
     t.index ["firstname_kana"], name: "index_users_on_firstname_kana"
     t.index ["lastname"], name: "index_users_on_lastname"
     t.index ["lastname_kana"], name: "index_users_on_lastname_kana"
-    t.index ["phone"], name: "index_users_on_phone"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
