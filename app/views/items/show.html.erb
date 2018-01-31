@@ -3,7 +3,7 @@
 			<!-- タイトル -->
 			<div class="row">
 				<div class="col-md-12">
-					<h2><b>シングル/アルバム名</b></h2>
+					<h2><b><%= @item.item_name %></b></h2>
 				</div>
 			</div><!-- end タイトル　-->
 
@@ -12,251 +12,31 @@
 				<div class="col-md-7">
 					<!-- CD内容 -->
 					<div>
-						<p><b>ジャンル</b></p>
-						<p><b>アーティスト</b></p>
-						<p><b>レーベル名</b></p>
-						<p><b>値段 / 在庫</b></p>
+						<p><b><%= @item.genre.genre_name %></b></p>
+						<p><b><%= @item.artist.artist_name %></b></p>
+						<p><b><%= @item.label %></b></p>
+						<p><b><%= @item.price %> / <%= @item.stock %></b></p>
 					</div><!-- end CD内容-->
 					<br>
 					<!-- 収録曲 -->
 					<div class="row">
 						<div  class="pre-scrollable" style="max-height: 500px";>
-							<div class="col-md-12">
-								<p>Disk.1</p>
-							</div>
-							<div class="col-md-6">
-								<p>&nbsp;1.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div>
-							<div class="col-md-6">
-								<p>&nbsp;2.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>&nbsp;3.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>&nbsp;4.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>&nbsp;5.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>&nbsp;6.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>&nbsp;7.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>&nbsp;8.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div>
-							<div class="col-md-6">
-								<p>&nbsp;9.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>10.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>11.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>12.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>13.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>14.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div>
-							<div class="col-md-12">
-								<p>Disk.2</p>
-							</div>
-							<div class="col-md-6">
-								<p>&nbsp;1.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div>
-							<div class="col-md-6">
-								<p>&nbsp;2.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>&nbsp;3.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>&nbsp;4.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>&nbsp;5.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>&nbsp;6.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>&nbsp;7.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>&nbsp;8.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div>
-							<div class="col-md-6">
-								<p>&nbsp;9.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>10.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>11.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>12.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>13.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div><div class="col-md-6">
-								<p>14.American Idiot</p>
-							</div>
-							<div class="col-md-4" style="background-color: black;">
-								<p>GREEN DAY</p>
-							</div>
-							<div class="col-md-2">
-								<p>-2:54</p>
-							</div>
+							<% @disks.order(:disk_number).each do |disk| %>
+								<div class="col-md-12">
+									<p>Disk.<%= disk.disk_number %></p>
+								</div>
+								<% disk.songs.order(:track_number).each do |song| %>
+									<div class="col-md-6">
+										<p>&nbsp;<%= song.track_number %>.<%= song.artist.artist_name %></p>
+									</div>
+									<div class="col-md-4" style="background-color: black;">
+										<p><%= song.song_name %></p>
+									</div>
+									<div class="col-md-2">
+										<p><%= song.song_length.strftime("%H : %M : %S") %></p>
+									</div>
+								<% end %>
+							<% end %>
 						</div>
 					</div><!-- end 収録曲-->
 
@@ -267,28 +47,25 @@
 				<div class="col-md-5">
 					<div style="text-align:center";>
 						<a href="">
-							<%= image_tag "51YJfX9RtDL.jpg" , :width => '300', :height => '300' %>
+							<%= attachment_image_tag @item, :jacket_image, :fill, 300, 300, fallback: "no_img.png" %>
 						</a>
 					</div>
 					<br>
-					<div class="row">
-						<div class="col-md-3"></div><!-- selectBox調整col -->
-						<!-- selectBox -->
-						<div class="col-md-3">
-							<select class="form-control">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-							</select>
-						</div><!-- end selectBox -->
+					<%= form_for(@cart) do |f| %>
+						<div class="row">
+							<div class="col-md-3"></div><!-- selectBox調整col -->
+							<!-- selectBox -->
+							<div class="col-md-3">
+								<%= f.select :quantity, (1..@item.stock).map{|i| [i, i]} %>
+								<%= f.hidden_field :item_id, value: @item.id, readonly: true %>
+							</div><!-- end selectBox -->
 
-						<!-- cartボタン -->
-						<div class="col-md-6">
-							<button type="button" class="btn btn-success ">Add to cart</button>
+							<!-- cartボタン -->
+							<div class="col-md-6">
+								<%= f.submit "Add to cart", class: "btn btn-success" %>
+							</div>
 						</div>
-					</div>
+					<% end %>
 				</div><!-- end ジャケット部分 -->
 
 			</div><!-- end row-->

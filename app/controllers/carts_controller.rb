@@ -18,7 +18,7 @@ class CartsController < ApplicationController
 			redirect_to items_path, alert: 'The quantity must be greater than 0'
 		#商品の個数が在庫より多い場合
 		elsif cart.quantity > cart.item.stock
-			reirect_to items_path, alert: 'Please pick CDs fewer than the stock'
+			reirect_to items_path, alert: 'Please pick items fewer than our stock'
 		else
 			#'カート一件のデータを保存'
 			cart.save
@@ -36,7 +36,7 @@ class CartsController < ApplicationController
 			render :index
 		#在庫より注文数が多い場合
 		elsif @cart.quantity > @cart.item.stock
-			render :index, alert: 'Please pick CDs fewer than the stock'
+			render :index, alert: 'Please pick items fewer than our stock'
 		else
 			#'送信された情報を元にカートのデータを更新'
 			@cart.update(cart_params)
