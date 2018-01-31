@@ -3,7 +3,11 @@ class ItemsController < ApplicationController
 
 	def index
 		#'全ての商品のデータを取得'
+<<<<<<< HEAD
 		@items= Item.where(delete_flag: false).page(params[:page]).reverse_order
+=======
+		@items= Item.order(:updated_at).page(params[:page]).reverse_order
+>>>>>>> 8e5f91570601b671914be898bf60139d6b6bc0c6
 	end
 
 	def show
