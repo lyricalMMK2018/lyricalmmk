@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20180126152543) do
     t.integer "artist_id", null: false
     t.integer "price", null: false
     t.integer "stock", null: false
-    t.integer "admin_id", null: false
+    t.integer "admin_id"
     t.boolean "delete_flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -147,6 +147,7 @@ ActiveRecord::Schema.define(version: 20180126152543) do
     t.index ["firstname_kana"], name: "index_users_on_firstname_kana"
     t.index ["lastname"], name: "index_users_on_lastname"
     t.index ["lastname_kana"], name: "index_users_on_lastname_kana"
+    t.index ["phone"], name: "index_users_on_phone"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

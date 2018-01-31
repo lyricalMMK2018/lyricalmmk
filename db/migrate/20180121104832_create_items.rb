@@ -9,7 +9,7 @@ class CreateItems < ActiveRecord::Migration[5.1]
     	t.integer :artist_id, null: false, index: true
     	t.integer :price, null: false
     	t.integer :stock, null: false
-    	t.integer :admin_id, null: false, index: true
+    	t.integer :admin_id, index: true
     	t.boolean :delete_flag
 
       t.timestamps

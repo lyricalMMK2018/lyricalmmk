@@ -33,8 +33,8 @@ class User < ApplicationRecord
         #validates_format_of :firstname_kana, with: /^[ァ-ンー－]+$/
         validates :lastname_kana, presence: true, length: { maximum: 128 }
         #validates_format_of :lastname_kana, with: /^[ァ-ンー－]+$/
-        validates :zip_code, numericality: true, length: { is: 7 }
-        validates :address, length: { maximum: 128 }
-        validates :phone, numericality: true, length: { in: 10..11 }
+        # validates :zip_code, numericality: true, length: { is: 7 }
+        # validates :address, length: { maximum: 128 }
+        # validates :phone, numericality: true, length: { in: 10..11 }
         validates :age, presence: true, numericality: { less_than: 128 }
 end
