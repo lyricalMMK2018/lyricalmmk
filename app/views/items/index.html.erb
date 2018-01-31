@@ -66,10 +66,10 @@
 
 
 									<!-- CDの陳列・一区切り -->
-									<div class="col-md-3">
+									<!-- <div class="col-md-3">
 										<div class="thumbnail" style="text-align:center;padding-top:10px;">
 											<a href="">
-												<%= image_tag "51YJfX9RtDL.jpg", class: "img-circle" %>
+												<%= image_tag "no_image.jpg", class: "img-circle" %>
 											</a>
 											<div class="caption">
 												<p><b>シングル/アルバム名</b></p>
@@ -77,170 +77,27 @@
 												<p>値段</p>
 											</div>
 										</div>
-									</div>
+									</div> -->
 									<!-- CDの陳列・一区切り　ここまで -->
-
-
-
+									<% @items.each do |item| %>
 									<div class="col-md-3">
 										<div class="thumbnail" style="text-align:center;padding-top:10px;">
-											<a href="">
-												<%= image_tag "51YJfX9RtDL.jpg", class: "img-circle" %>
-											</a>
+											<%=link_to item_path(item) do %>
+											<%= attachment_image_tag item, :jacket_image, :fill, 300, 300, fallback: "no_image.jpg", class: "img-circle"%>
+											<% end %>
 											<div class="caption">
-												<p><b>シングル/アルバム名</b></p>
-												<p>アーティスト</p>
-												<p>値段</p>
+												<p><b><%= item.item_name %></b></p>
+												<p><%= item.artist.artist_name %></p>
+												<p><%= number_to_currency(item.price, :unit => "￥", :precision => 0) %></p>
 											</div>
 										</div>
 									</div>
-
-									<div class="col-md-3">
-										<div class="thumbnail" style="text-align:center;padding-top:10px;">
-											<a href="">
-												<%= image_tag "51YJfX9RtDL.jpg", class: "img-circle" %>
-											</a>
-											<div class="caption">
-												<p><b>シングル/アルバム名</b></p>
-												<p>アーティスト</p>
-												<p>値段</p>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-md-3">
-										<div class="thumbnail" style="text-align:center;padding-top:10px;">
-											<a href="">
-												<%= image_tag "51YJfX9RtDL.jpg", class: "img-circle" %>
-											</a>
-											<div class="caption">
-												<p><b>シングル/アルバム名</b></p>
-												<p>アーティスト</p>
-												<p>値段</p>
-											</div>
-										</div>
-									</div>
-
-									<!-- 二行目はここから開始 -->
-
-									<div class="col-md-3">
-										<div class="thumbnail" style="text-align:center;padding-top:10px;">
-											<a href="">
-												<%= image_tag "51YJfX9RtDL.jpg", class: "img-circle" %>
-											</a>
-											<div class="caption">
-												<p><b>シングル/アルバム名</b></p>
-												<p>アーティスト</p>
-												<p>値段</p>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-md-3">
-										<div class="thumbnail" style="text-align:center;padding-top:10px;">
-											<a href="">
-												<%= image_tag "51YJfX9RtDL.jpg", class: "img-circle" %>
-											</a>
-											<div class="caption">
-												<p><b>シングル/アルバム名</b></p>
-												<p>アーティスト</p>
-												<p>値段</p>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-md-3">
-										<div class="thumbnail" style="text-align:center;padding-top:10px;">
-											<a href="">
-												<%= image_tag "51YJfX9RtDL.jpg", class: "img-circle" %>
-											</a>
-											<div class="caption">
-												<p><b>シングル/アルバム名</b></p>
-												<p>アーティスト</p>
-												<p>値段</p>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-md-3">
-										<div class="thumbnail" style="text-align:center;padding-top:10px;">
-											<a href="">
-												<%= image_tag "51YJfX9RtDL.jpg", class: "img-circle" %>
-											</a>
-											<div class="caption">
-												<p><b>シングル/アルバム名</b></p>
-												<p>アーティスト</p>
-												<p>値段</p>
-											</div>
-										</div>
-									</div>
-
-
-									<!-- 三行目はここから開始 -->
-
-									<div class="col-md-3">
-										<div class="thumbnail" style="text-align:center;padding-top:10px;">
-											<a href="">
-												<%= image_tag "51YJfX9RtDL.jpg", class: "img-circle" %>
-											</a>
-											<div class="caption">
-												<p><b>シングル/アルバム名</b></p>
-												<p>アーティスト</p>
-												<p>値段</p>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-md-3">
-										<div class="thumbnail" style="text-align:center;padding-top:10px;">
-											<a href="">
-												<%= image_tag "51YJfX9RtDL.jpg", class: "img-circle" %>
-											</a>
-											<div class="caption">
-												<p><b>シングル/アルバム名</b></p>
-												<p>アーティスト</p>
-												<p>値段</p>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-md-3">
-										<div class="thumbnail" style="text-align:center;padding-top:10px;">
-											<a href="">
-												<%= image_tag "51YJfX9RtDL.jpg", class: "img-circle" %>
-											</a>
-											<div class="caption">
-												<p><b>シングル/アルバム名</b></p>
-												<p>アーティスト</p>
-												<p>値段</p>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-md-3">
-										<div class="thumbnail" style="text-align:center;padding-top:10px;">
-											<a href="">
-												<%= image_tag "51YJfX9RtDL.jpg", class: "img-circle" %>
-											</a>
-											<div class="caption">
-												<p><b>シングル/アルバム名</b></p>
-												<p>アーティスト</p>
-												<p>値段</p>
-											</div>
-										</div>
-									</div>
-
+									<% end %>
 									<!-- CD陳列ここまで -->
 
 
-									<div class="pagination col-md-12">
-										<p>1</p>
-										<p>2</p>
-										<p>3</p>
-										<p>4</p>
-										<p>5</p>
-										<p>></p>
-										<p>>></p>
+									<div class="col-md-12" style="text-align: center;">
+										<%= paginate @items %>
 									</div>
 								</div>
 							</div>

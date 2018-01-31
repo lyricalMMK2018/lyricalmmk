@@ -61,6 +61,6 @@ gem 'devise'
 
 gem 'bootstrap-sass'
 gem 'jquery-rails'
-gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 3.0', '>= 3.0.1'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'enum_help'

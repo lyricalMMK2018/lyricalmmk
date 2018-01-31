@@ -3,15 +3,14 @@ class ItemsController < ApplicationController
 
 	def index
 		#'全ての商品のデータを取得'
-		@items= Item.page(params[:page]).reverse_order
-        Rails.logger.info("----------------------------------------------きたよ")
+		@items= Item.order(:updated_at).page(params[:page]).reverse_order
 	end
 
 	def show
 		#'URLで指定されたITEM IDを持つデータを取得'
-		#'@item = Item.find(params[:id])'
+		@item = Item.find(params[:id])
 		#'上の子であるディスクのデータを全て取得'
-		#'@disks = @item.disks'
+		@disks = @item.disks
 		#Viewでは@disks each do |disk|、songs = disk.songs、songs each do |song|
 	end
 
