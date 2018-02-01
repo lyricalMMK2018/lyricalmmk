@@ -88,7 +88,11 @@
 											<div class="caption">
 												<p><b><%= item.item_name %></b></p>
 												<p><%= item.artist.artist_name %></p>
-												<p><%= number_to_currency(item.price, :unit => "￥", :precision => 0) %></p>
+												<% if item.stock <= 0 %>
+													<p style="color: red;">Sold</p>
+												<% else %>
+													<p><%= number_to_currency(item.price, :unit => "￥", :precision => 0) %></p>
+												<% end %>
 											</div>
 										</div>
 									</div>

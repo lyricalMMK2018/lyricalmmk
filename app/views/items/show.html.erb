@@ -27,10 +27,10 @@
 								</div>
 								<% disk.songs.order(:track_number).each do |song| %>
 									<div class="col-md-6">
-										<p>&nbsp;<%= song.track_number %>.<%= song.artist.artist_name %></p>
+										<p><%= song.track_number %>.<%= song.song_name %></p>
 									</div>
-									<div class="col-md-4" style="background-color: black;">
-										<p><%= song.song_name %></p>
+									<div class="col-md-4" style="background-color: white;">
+										<p>&nbsp;<%= song.artist.artist_name %></p>
 									</div>
 									<div class="col-md-2">
 										<p><%= song.song_length.strftime("%H:%M:%S") %></p>
