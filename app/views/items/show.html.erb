@@ -15,7 +15,7 @@
 						<p><b><%= @item.genre.genre_name %></b></p>
 						<p><b><%= @item.artist.artist_name %></b></p>
 						<p><b><%= @item.label %></b></p>
-						<p><b><%= @item.price %> / <%= @item.stock %></b></p>
+						<p><b><%= @item.price %> / <% if @item.stock = 0 %><span style="color: red;"%>Sold out</span><% else %><%= @item.stock %><% end %></b></p>
 					</div><!-- end CD内容-->
 					<br>
 					<!-- 収録曲 -->
