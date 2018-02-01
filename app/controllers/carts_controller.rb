@@ -1,8 +1,6 @@
 class CartsController < ApplicationController
 
 	def index
-		#'ユーザーIDに所属するカートのデータを全て取得'
-		@carts = current_user.carts
 		#'注文詳細を入力するための空のフォームを表示'
 		@order = Order.new
 	end
@@ -33,14 +31,14 @@ class CartsController < ApplicationController
 		#'商品の個数が0より小さいなら'
 		if @cart.quantity <= 0
 			@cart.destroy
-			render :index
+			redirect_to carts_path
 		#在庫より注文数が多い場合
 		elsif @cart.quantity > @cart.item.stock
-			render :index, alert: 'Please pick items fewer than our stock'
+			redirect_to carts_path, alert: 'Please pick items fewer than our stock'
 		else
 			#'送信された情報を元にカートのデータを更新'
 			@cart.update(cart_params)
-			render :index
+			redirect_to carts_path
 		end
 	end
 
@@ -50,7 +48,7 @@ class CartsController < ApplicationController
 		#'カートのデータ一件を削除'
 		@cart.destroy
 		#'ページを更新'
-		render :index
+		redirect_to carts_path
 	end
 
 	private
