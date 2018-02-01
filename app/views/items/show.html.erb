@@ -15,7 +15,7 @@
 						<p><b><%= @item.genre.genre_name %></b></p>
 						<p><b><%= @item.artist.artist_name %></b></p>
 						<p><b><%= @item.label %></b></p>
-						<p><b><%= @item.price %> / <% if @item.stock = 0 %><span style="color: red;">Sold out</span><% else %><%= @item.stock %><% end %></b></p>
+						<p><b><%= @item.price %> / <% if @item.stock %><%= @item.stock %><% else %><span style="color: red;">Sold out</span><% end %></b></p>
 					</div><!-- end CD内容-->
 					<br>
 					<!-- 収録曲 -->
@@ -62,7 +62,7 @@
 
 							<!-- cartボタン -->
 							<div class="col-md-6">
-								<% if @item.stock != 0 %>
+								<% if @item.stock %>
 									<%= f.submit "Add to cart", class: "btn btn-success" %>
 								<% end %>
 							</div>

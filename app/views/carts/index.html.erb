@@ -58,7 +58,7 @@
 						</div>
 						<div class="col-md-2">
 							<%= form_for(@order) do |f| %>
-								<%= f.submit "Buy now", class: "btn btn-primary", style: "margin-top: 20px;" %>
+								<%= f.submit "Buy now", class: "btn btn-primary", style: "margin-top: 20px;", data: { confirm: "Total payment is #{sub_total_each_carts} yen, are you sure?" } %>
 							</div>
 
 						</div>

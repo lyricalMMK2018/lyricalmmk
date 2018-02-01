@@ -20,6 +20,9 @@ class OrdersController < ApplicationController
 				item_order.order_id = order.id
 				item_order.delivery_status = 0
 				item_order.save
+				#helper-method
+				cart.item.stock -= cart.quantity
+				cart.item.save
 				cart.destroy
 			end
 			#-- !Thank you --

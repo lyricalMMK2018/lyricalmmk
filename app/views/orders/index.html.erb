@@ -17,7 +17,7 @@
 						<h3><b><%= order.created_at.strftime("%Y %b %d") %></b></h3>
 					</div>
 					<div class="col-md-2">
-						<h3><b><%= sub_total_per_order(order) %></b></h3>
+						<h3><b><% if order.delete_flag %><span style="color: red;">Canceled</span><% else %><%= sub_total_per_order(order) %><% end %></b></h3>
 					</div>
 				</div><!-- end 購入日・小計　-->
 
