@@ -16,7 +16,7 @@ class CartsController < ApplicationController
 			redirect_to item_path(cart.item), alert: 'The quantity must be greater than 0'
 		#商品の個数が在庫より多い場合
 		elsif cart.quantity > cart.item.stock
-			reirect_to root_path(cart.item), alert: 'Please pick items fewer than our stock'
+			reirect_to item_path(cart.item), alert: 'Please pick items fewer than our stock'
 		else
 			#'カート一件のデータを保存'
 			cart.save
