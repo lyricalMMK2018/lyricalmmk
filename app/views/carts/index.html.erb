@@ -32,7 +32,7 @@
 											<div class="row">
 												<div class="col-md-12 form-inline">
 													<%= form_for(cart) do |f| %>
-														<%= f.select :quantity, (1..cart.item.stock).map{|i| [i, i]} %>
+														<%= f.select :quantity, (0..cart.item.stock).map{|i| [i, i]} %>
 														<%= f.submit "update", class: "btn btn-default btn-sm" %>
 														<%= link_to "delete", cart_path(cart), method: :delete, class: "btn btn-danger btn-sm" %>
 													<% end %>
