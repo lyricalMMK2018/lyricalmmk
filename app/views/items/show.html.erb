@@ -15,7 +15,7 @@
 						<p><b><%= @item.genre.genre_name %></b></p>
 						<p><b><%= @item.artist.artist_name %></b></p>
 						<p><b><%= @item.label %></b></p>
-						<p><b><%= @item.price %> / <%= @item.stock %></b></p>
+						<p><b><%= @item.price %> / <% if @item.stock = 0 %><span style="color: red;">Sold out</span><% else %><%= @item.stock %><% end %></b></p>
 					</div><!-- end CD内容-->
 					<br>
 					<!-- 収録曲 -->
@@ -56,13 +56,15 @@
 							<div class="col-md-3"></div><!-- selectBox調整col -->
 							<!-- selectBox -->
 							<div class="col-md-3">
-								<%= f.select :quantity, (1..@item.stock).map{|i| [i, i]} %>
+								<%= f.select :quantity, (0..@item.stock).map{|i| [i, i]} %>
 								<%= f.hidden_field :item_id, value: @item.id, readonly: true %>
 							</div><!-- end selectBox -->
 
 							<!-- cartボタン -->
 							<div class="col-md-6">
-								<%= f.submit "Add to cart", class: "btn btn-success" %>
+								<% if @item.stock != 0 %>
+									<%= f.submit "Add to cart", class: "btn btn-success" %>
+								<% end %>
 							</div>
 						</div>
 					<% end %>
