@@ -9,32 +9,32 @@
 
 
     <div class="field">
-      <%= f.label :firstname_kana %><br />
+      <%= f.label :firstname_kana %> ※<br />
       <%= f.text_field :firstname_kana, autofocus: true, autocomplete: "user_firstnamekana" %>
     </div>
 
         <div class="field">
-      <%= f.label :lastname_kana %><br />
+      <%= f.label :lastname_kana %> ※<br />
       <%= f.text_field :lastname_kana, autofocus: true, autocomplete: "user_lastnamekana" %>
     </div>
 
     <div class="field">
-      <%= f.label :firstname %><br />
+      <%= f.label :firstname %> ※<br />
       <%= f.text_field :firstname, autofocus: true, autocomplete: "user_firstname" %>
     </div>
 
     <div class="field">
-      <%= f.label :lastname %><br />
+      <%= f.label :lastname %> ※<br />
       <%= f.text_field :lastname, autofocus: true, autocomplete: "user_lastname" %>
     </div>
 
     <div class="field">
-      <%= f.label :gender %><br />
+      <%= f.label :gender %> ※<br />
       <%= f.select :gender, User.genders.keys.map {|k| [k, k]} %>
     </div>
 
     <div class="field">
-      <%= f.label :age %><br />
+      <%= f.label :age %> ※<br />
       <%= f.text_field :age, autofocus: true, autocomplete: "user_age" %>
     </div>
 
@@ -55,7 +55,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :email %><br />
+      <%= f.label :email %> ※<br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
 
@@ -78,7 +78,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.label :current_password %> ※<i> (we need your current password to confirm your changes)</i><br />
       <%= f.password_field :current_password, autocomplete: "off" %>
     </div>
 

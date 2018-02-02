@@ -10,32 +10,32 @@
     <%= devise_error_messages! %>
 
     <div class="field">
-      <label for="user_firstnamekana">FirstName_Kana</label><br>
+      <label for="user_firstnamekana">FirstName_Kana ※</label><br>
       <%= f.text_field  :firstname_kana, id: "inputFirstnamekana" %>
     </div>
 
     <div class="field">
-      <label for="user_lastnamekana">LastName_Kana</label><br>
+      <label for="user_lastnamekana">LastName_Kana ※</label><br>
       <%= f.text_field  :lastname_kana, id: "inputLastnamekana" %>
     </div>
 
     <div class="field">
-      <label for="user_firstname">FirstName</label><br>
+      <label for="user_firstname">FirstName ※</label><br>
       <%= f.text_field  :firstname, id: "inputFirstname" %>
     </div>
 
     <div class="field">
-      <label for="user_lastname">LastName</label><br>
+      <label for="user_lastname">LastName ※</label><br>
       <%= f.text_field  :lastname, id: "inputLastname" %>
     </div>
 
     <div class="field">
-      <label for="user_gender">Gender</label><br>
+      <label for="user_gender">Gender ※</label><br>
       <%= f.select :gender, User.genders.keys.map {|k| [k, k]} %>
     </div>
 
     <div class="field">
-      <label for="user_age">Age</label><br>
+      <label for="user_age">Age ※</label><br>
       <%= f.text_field  :age, id: "inputAge" %>
     </div>
 
@@ -60,19 +60,19 @@
     </div>
 
     <div class="field">
-      <label for="user_email">Email</label><br>
+      <label for="user_email">Email ※</label><br>
       <%= f.email_field :email, id: "inputEmail" %>
     </div>
 
     <div class="field">
-      <label for="user_password">Password</label>
+      <label for="user_password">Password ※</label>
       <em>(6 characters minimum)</em>
       <br>
       <%= f.password_field :password, autocomplete: "off", id:"inputPassword" %>
     </div>
 
     <div class="field">
-      <label for="user_password_confirmation">Password confirmation</label><br>
+      <label for="user_password_confirmation"> ※Password confirmation</label><br>
       <%= f.password_field :password_confirmation, autocomplete: "off", id:"inputConfirmPassword" %>
     </div>
 

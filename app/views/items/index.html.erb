@@ -65,6 +65,23 @@
 									</div>
 
 
+
+
+									<%= search_form_for @q, url: search_items_path, html: { method: :post } do |f| %>
+										<%= f.search_field :item_name_cont %>
+
+
+										<%= f.submit %>
+									<% end %>
+
+
+
+
+
+
+
+
+
 									<!-- CDの陳列-->
 									<% @items.each do |item| %>
 									<div class="col-md-3">

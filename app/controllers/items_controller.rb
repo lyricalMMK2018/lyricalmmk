@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
 	def index
 		#'全ての商品のデータを取得'
 		@items = Item.order(:updated_at).page(params[:page]).reverse_order
+		@q = Item.ransack(params[:q])
 	end
 
 	def show
