@@ -15,19 +15,20 @@
 						<p><b><%= @item.genre.genre_name %></b></p>
 						<p><b><%= @item.artist.artist_name %></b></p>
 						<p><b><%= @item.label %></b></p>
-						<p><b><%= @item.price %> / <% if @item.stock %><%= @item.stock %><% else %><span style="color: red;">Sold out</span><% end %></b></p>
+						<p><b><%= number_to_currency(@item.price, :unit => "￥", :precision => 0) %>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;
+						<% if @item.stock > 0 %><span style="color: green;">In stock</span><% else %><span style="color: red;">Out of stock</span><% end %></b></p>
 					</div><!-- end CD内容-->
 					<br>
 					<!-- 収録曲 -->
 					<div class="row">
 						<div  class="pre-scrollable" style="max-height: 500px";>
 							<% @disks.order(:disk_number).each do |disk| %>
-								<div class="col-md-12">
-									<p>Disk.<%= disk.disk_number %></p>
+								<div class="col-md-12" style="margin-top: 10px;">
+									<p><b>Disk.<%= disk.disk_number %></b></p>
 								</div>
 								<% disk.songs.order(:track_number).each do |song| %>
 									<div class="col-md-6">
-										<p><%= song.track_number %>.<%= song.song_name %></p>
+										<p>&nbsp;&nbsp;<%= song.track_number %>.<%= song.song_name %></p>
 									</div>
 									<div class="col-md-4" style="background-color: white;">
 										<p>&nbsp;<%= song.artist.artist_name %></p>
@@ -46,23 +47,25 @@
 				<!-- ジャケット部分 -->
 				<div class="col-md-5">
 					<div style="text-align:center";>
-						<a href="">
+						<% if @item.stock > 0 %>
 							<%= attachment_image_tag @item, :jacket_image, :fill, 300, 300, fallback: "no_img.png" %>
-						</a>
+						<% else %>
+							<%= attachment_image_tag @item, :jacket_image, :fill, 300, 300, fallback: "no_img.png", style: "filter: grayscale(100%);"  %>
+						<% end %>
 					</div>
 					<br>
 					<%= form_for(@cart) do |f| %>
 						<div class="row">
-							<div class="col-md-3"></div><!-- selectBox調整col -->
+							<div class="col-md-4"></div><!-- selectBox調整col -->
 							<!-- selectBox -->
-							<div class="col-md-3">
+							<div class="col-md-2 input-lg">
 								<%= f.select :quantity, (0..@item.stock).map{|i| [i, i]} %>
 								<%= f.hidden_field :item_id, value: @item.id, readonly: true %>
 							</div><!-- end selectBox -->
 
 							<!-- cartボタン -->
-							<div class="col-md-6">
-								<% if @item.stock %>
+							<div class="col-md-6" style="padding-top: 5px">
+								<% if @item.stock > 0 %>
 									<%= f.submit "Add to cart", class: "btn btn-success" %>
 								<% end %>
 							</div>
