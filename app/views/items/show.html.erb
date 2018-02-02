@@ -34,7 +34,7 @@
 										<p>&nbsp;<%= song.artist.artist_name %></p>
 									</div>
 									<div class="col-md-2">
-										<p><%= song.song_length.strftime("%H:%M:%S") %></p>
+										<p><%= calc_minute(song) %>:<%= song.song_length.strftime("%S") %></p>
 									</div>
 								<% end %>
 							<% end %>
@@ -64,7 +64,7 @@
 							</div><!-- end selectBox -->
 
 							<!-- cartボタン -->
-							<div class="col-md-6" style="padding-top: 5px">
+							<div class="col-md-6" style="padding-top: 5px;">
 								<% if @item.stock > 0 %>
 									<%= f.submit "Add to cart", class: "btn btn-success" %>
 								<% end %>
