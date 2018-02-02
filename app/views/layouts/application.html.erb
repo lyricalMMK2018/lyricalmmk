@@ -17,7 +17,7 @@
 			<nav>
 				<ul class="nav navbar-nav navbar-right">
 					<% if user_signed_in? %>
-						<li><a class="glyphicon" href=""><b><%= current_user.firstname %>, Welcome!</b></a></li>
+						<li><%=link_to "#{current_user.firstname}, Welcome!", orders_path, class: "glyphicon", :style=>"font-weight:bold;" %></li>
 						<li><%=link_to ' CD', root_path, class: "glyphicon glyphicon-cd" %></li>
 						<li><%=link_to ' MyPage', user_path, class: "glyphicon glyphicon-user" %></li>
 						<li><%=link_to ' Cart', carts_path, class: "glyphicon glyphicon-shopping-cart" %></li>
