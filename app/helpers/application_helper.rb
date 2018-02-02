@@ -18,4 +18,12 @@ module ApplicationHelper
 		return sub_total
 	end
 
+	def calc_minute(x)
+		result = 0
+		minute = x.song_length.strftime("%M").to_i
+		hour = x.song_length.strftime("%H").to_i
+		result = hour * 60 + minute
+		return result
+	end
+
 end
