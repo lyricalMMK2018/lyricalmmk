@@ -13,11 +13,11 @@
 			<div class="col-md-12">
 				<!-- 購入日・小計 -->
 				<div class="row">
-					<div class="col-md-10">
+					<div class="col-md-9">
 						<h3><b><%= order.created_at.strftime("%Y %b %d") %></b></h3>
 					</div>
-					<div class="col-md-2">
-						<h3><b><% if order.delete_flag %><span style="color: red;">Canceled</span><% else %><%= sub_total_per_order(order) %><% end %></b></h3>
+					<div class="col-md-3">
+						<h3><b><% if order.delete_flag %><span style="color: red;">Canceled</span><% else %><%= number_to_currency(sub_total_per_order(order), :unit => "￥", :precision => 0) %><% end %></b></h3>
 					</div>
 				</div><!-- end 購入日・小計　-->
 
@@ -32,14 +32,14 @@
 										<%= attachment_image_tag item_order.item, :jacket_image, :fill, 120, 120, fallback: "no_img_120.png" %>
 									<% end %>
 								</div>
-								<div class="col-md-7">
+								<div class="col-md-7" style="padding-top: 15px;">
 									<p><%= link_to item_order.item.item_name, item_path(item_order.item) %></p>
 									<p><%= item_order.item.artist.artist_name %></p>
-									<p><%= item_order.saved_price %> / <%= item_order.quantity %></p>
+									<p><%= number_to_currency(item_order.saved_price, :unit => "￥", :precision => 0) %> x <%= item_order.quantity %></p>
 								</div>
 								<div class="col-md-2">
 									<h4><b><%= item_order.delivery_status %></b></h4>
-									<h4><b><%= item_order.saved_price * item_order.quantity %></b></h4>
+									<h4><b><%= number_to_currency(item_order.saved_price * item_order.quantity, :unit => "￥", :precision => 0) %></b></h4>
 								</div>
 							</div>
 						<% end %>
