@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
 				#-- !Thank you --
 				redirect_to orders_path, alert: 'Thank you for trading with us!'
 			else
-				redirect_to carts_path, alert: 'Please fill all of the destination information'
+				redirect_to carts_path, alert: 'Please fill all of the shipment destinations'
 			end
 		else
 			redirect_to carts_path
