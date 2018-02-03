@@ -55,14 +55,19 @@
 									<div class="col-md-1" style="line-height: 34px;margin: 15px 0;text-align:right;font-size: 20px;color: white;">
 										<span> index</span>
 									</div>
-									<div class="input-group col-md-11" style="padding-right: 15px;margin: 15px auto;">
-										<input type="text" class="  search-query form-control" placeholder="Search">
-										<span class="input-group-btn">
-											<button class="btn btn-danger" type="button">
-												<span class=" glyphicon glyphicon-search"></span>
-											</button>
-										</span>
+
+									<div class="input-group col-md-11" style="padding-right: 15px; margin: 15px auto;">
+										<%= search_form_for @q, url: search_items_path, html: { method: :post } do |f| %>
+											<%= f.search_field :item_name_cont ,style: "max-width: 1018px ;", class: "form-control", placeholder: "Search" %>
+											<span class="input-group-btn">
+												<%= f.button :type => "submit", :class =>"btn btn-danger" do %>
+													<span class="glyphicon glyphicon-search"></span>
+												<% end %>
+											</span>
+										<% end %>
 									</div>
+
+
 
 
 									<!-- CDの陳列-->
@@ -70,20 +75,20 @@
 									<div class="col-md-3">
 										<div class="thumbnail" style="text-align:center;padding-top:10px;">
 											<%=link_to item_path(item) do %>
-												<% if item.stock > 0 %>
-													<%= attachment_image_tag item, :jacket_image, :fill, 300, 300, fallback: "no_image.jpg", class: "img-circle" %>
-												<% else %>
-													<%= attachment_image_tag item, :jacket_image, :fill, 300, 300, fallback: "no_image.jpg", class: "img-circle", style: "filter: grayscale(100%);" %>
-												<% end %>
+											<% if item.stock > 0 %>
+											<%= attachment_image_tag item, :jacket_image, :fill, 300, 300, fallback: "no_image.jpg", class: "img-circle" %>
+											<% else %>
+											<%= attachment_image_tag item, :jacket_image, :fill, 300, 300, fallback: "no_image.jpg", class: "img-circle", style: "filter: grayscale(100%);" %>
+											<% end %>
 											<% end %>
 
 											<div class="caption">
 												<p><b><%= item.item_name %></b></p>
 												<p><%= item.artist.artist_name %></p>
 												<% if item.stock <= 0 %>
-													<p style="color: red;">Out of stock</p>
+												<p style="color: red;">Out of stock</p>
 												<% else %>
-													<p><%= number_to_currency(item.price, :unit => "￥", :precision => 0) %></p>
+												<p><%= number_to_currency(item.price, :unit => "￥", :precision => 0) %></p>
 												<% end %>
 											</div>
 										</div>

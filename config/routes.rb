@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/myPage' => 'users#show', as: :user
   #get '/basket' => 'carts#index', as: :basket
   #get '/purchase_history' => 'orders#index', as: :purchase_histroy
-  match 'search' => 'item#search', via: [:get, :post], as: :search_items
+  match 'search' => 'items#search', via: [:get, :post], as: :search_items
   #resources :items, only: :show do
    # collection do
    #   match 'search' => 'item#search', via: [:get, :post], as: :search
