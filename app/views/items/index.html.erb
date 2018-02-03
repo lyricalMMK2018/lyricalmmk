@@ -58,7 +58,7 @@
 
 									<div class="input-group col-md-11" style="padding-right: 15px; margin: 15px auto;">
 										<%= search_form_for @q, url: search_items_path, html: { method: :post } do |f| %>
-											<%= f.search_field :item_name_cont, style: "max-width: 1018px ;", class: "form-control", placeholder: "Search" %>
+											<%= f.search_field :item_name_or_artist_artist_name_cont, style: "max-width: 1018px ;", class: "form-control", placeholder: "Search" %>
 											<span class="input-group-btn">
 												<%= f.button :type => "submit", :class =>"btn btn-danger" do %>
 													<span class="glyphicon glyphicon-search"></span>
