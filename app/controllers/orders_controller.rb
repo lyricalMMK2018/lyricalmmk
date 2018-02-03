@@ -5,6 +5,12 @@ class OrdersController < ApplicationController
 
 	def create
 		if current_user.carts.any?
+			#注文数と在庫数を比べる
+			current_user.carts.each do |cart|
+				if cart.quantity > cart.item.stock
+					redirect_to carts_path, alert: "Sorry, we have insufficient stocks of #{cart.item.item_name}, please reduce the quantity and try again"
+				end
+			end
 			order = Order.new(order_params)
 			order.user_id = current_user.id
 			if order.save
@@ -27,7 +33,7 @@ class OrdersController < ApplicationController
 					cart.destroy
 				end
 				#-- !Thank you --
-				redirect_to orders_path, alert: 'Thank you for trading with us!'
+				redirect_to orders_path, notice: 'Thank you for trading with us!'
 			else
 				redirect_to carts_path, alert: 'Please fill all of the shipment destinations'
 			end
