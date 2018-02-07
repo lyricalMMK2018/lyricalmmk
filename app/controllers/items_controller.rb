@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
 	skip_before_action :authenticate_user!
-
 	
 	def index
 		#'全ての商品のデータを取得'
