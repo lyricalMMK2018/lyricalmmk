@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-	skip_before_action :authenticate_user!
 
 	def index
 		#'全ての商品のデータを取得'
@@ -19,8 +18,14 @@ class ItemsController < ApplicationController
 	def search
 		#Itemsコントローラーの範囲内での検索機能は、ransackのAdvanced Modeを使ってください
 		@q = Item.ransack(params[:q])
-		results = @q.result.includes(:genre, :artist, :disks, :songs).to_a.uniq
-		@items = Kaminari.paginate_array(results).page(params[:page])
+		#37.2ms
+		# results = @q.result.includes(artist, :songs).to_a.uniq
+		# @items = Kaminari.paginate_array(results).page(params[:page])
+		#10ms
+		@items = @q.result(distinct: true).joins(:artist, :songs).page(params[:page])
+		#10ms
+		# @items = @q.result(distinct: true).select('items.*').page(params[:page])
+
 		render :index
 		#indexページにおいて、@itemsはItemを全件取得しますが、searchメソッドをindexから実行した場合
 		#@itemsで参照する値を検索結果に置き換えて、indexページを更新させます
