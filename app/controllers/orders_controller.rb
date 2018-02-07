@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 	end
 
 	def create
-		if current_user.carts.any?
+		if current_user.carts.exists?
 			#注文数と在庫数を比べる
 			current_user.carts.each do |cart|
 				if cart.quantity > cart.item.stock
@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
 			if order.save
 				#ユーザーが持っているカートの情報を全て取得
 				#カートに登録されいているアイテムひとつずつに対して
-				current_user.carts.each do |cart|
+				Cart.where(user_id: current_user.id).find_each do |cart|
 					#新規項目を作成
 					item_order = ItemOrder.new
 					#cartが持っている項目をitem_orderが持つ形に変換

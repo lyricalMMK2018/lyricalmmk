@@ -9,7 +9,7 @@ class CartsController < ApplicationController
 		#'送信された情報を元にカートの項目を一つ作成'
 		cart = Cart.new(cart_params)
 		#カートに入れようとしているアイテムがすでに存在しているか
-		if current_user.carts.any? {|current_cart| current_cart.item_id = cart.item_id}
+		if current_user.carts.exists? {|current_cart| current_cart.item_id = cart.item_id}
 			#ユーザーIDと商品IDが一致するレコードを取得
 			current_cart = Cart.find_by(user_id: current_user.id, item_id: cart.item_id)
 			#存在しているなら、quantityを追加する
