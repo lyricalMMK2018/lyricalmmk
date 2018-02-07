@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
+	skip_before_action :authenticate_user!
 
+	
 	def index
 		#'全ての商品のデータを取得'
 		@items = Item.order(:updated_at).page(params[:page]).reverse_order
