@@ -1,8 +1,9 @@
 class OrdersController < ApplicationController
 
-	def names
+	def names(var)
+		#購入個数より在庫が少なかった場合に呼び出され、在庫の少ない商品
 		list = ''
-		current_user.carts.find_each do |cart|
+		var.each do |cart|
 			if cart.quantity > cart.item.stock
 				item_name = cart.item.item_name
 				list += item_name + ', '
@@ -23,7 +24,7 @@ class OrdersController < ApplicationController
 			redirect_to carts_path, alert: 'No items in your cart'
 		#在庫数チェック
 		elsif carts.any? {|cart| cart.quantity > cart.item.stock}
-			redirect_to carts_path, alert: "Sorry, we have insufficient stocks of #{names}please reduce the quantity and try again"
+			redirect_to carts_path, alert: "Sorry, we have insufficient stocks of #{names(carts)}please reduce the quantity and try again"
 		#Orderフォームバリデーション通過
 		elsif order.save
 			carts.each do |cart|
