@@ -42,18 +42,30 @@ class CartsController < ApplicationController
 	def update
 		#'編集したいカートのデータを取得'
 		@cart = Cart.find(params[:id])
-		#'商品の個数が0なら'
+		current_quantity = @cart.quantity
+		@cart.update(cart_params)
 		if @cart.quantity <= 0
 			@cart.destroy
 			redirect_to carts_path
-		#在庫より注文数が多い場合
 		elsif @cart.quantity > @cart.item.stock
+			@cart.quantity = current_quantity
+			@cart.save
 			redirect_to carts_path, alert: 'Please pick items fewer than our stock'
 		else
-			#'送信された情報を元にカートのデータを更新'
-			@cart.update(cart_params)
 			redirect_to carts_path
 		end
+		# #'商品の個数が0なら'
+		# if @cart.quantity <= 0
+		# 	@cart.destroy
+		# 	redirect_to carts_path
+		# #在庫より注文数が多い場合
+		# elsif @cart.quantity > @cart.item.stock
+		# 	redirect_to carts_path, alert: 'Please pick items fewer than our stock'
+		# else
+		# 	#'送信された情報を元にカートのデータを更新'
+		# 	@cart.update(cart_params)
+		# 	redirect_to carts_path
+		# end
 	end
 
 	def destroy
