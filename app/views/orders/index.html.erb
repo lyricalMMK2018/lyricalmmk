@@ -7,7 +7,7 @@
 		</div>
 	</div><!-- end タイトル　-->
 
-	<% current_user.orders.includes(:item_orders).reverse_order.each do |order| %>
+	<% @orders.reverse_order.each do |order| %>
 		<div class="row" style="margin-top: 20px;">
 			<!-- 購入内容 -->
 			<div class="col-md-12">

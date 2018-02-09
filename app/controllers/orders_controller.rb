@@ -13,12 +13,13 @@ class OrdersController < ApplicationController
 	end
 
 	def index
+		@orders = current_user.orders.includes(:item_orders)
 	end
 
 	def create
 		order = Order.new(order_params)
 		order.user_id = current_user.id
-		carts = current_user.carts
+		carts = current_user.carts.includes(:item)
 		#カートの中身があるかどうかチェック
 		if carts.blank?
 			redirect_to carts_path, alert: 'No items in your cart'
