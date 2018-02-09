@@ -18,7 +18,7 @@
 							<div class="col-md-12" style="border: 1px solid #ddd; border-radius: 4px;">
 
 								<!-- CD内容　-->
-								<% current_user.carts.each do |cart| %>
+								<% @carts.each do |cart| %>
 									<div class="row" style= "margin: 15px auto;">
 										<div class="col-md-3 ">
 											<%= link_to item_path(cart.item) do %>

@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
 	def index
 		#'全ての商品のデータを取得'
-		@items = Item.order(:updated_at).page(params[:page]).reverse_order
+		@items = Item.order(:updated_at).includes(:artist).page(params[:page]).reverse_order
 		@q = Item.ransack(params[:q])
 	end
 
@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
 		# results = @q.result.includes(artist, :songs).to_a.uniq
 		# @items = Kaminari.paginate_array(results).page(params[:page])
 		#10ms
-		@items = @q.result(distinct: true).joins(:artist, :songs).page(params[:page])
+		@items = @q.result(distinct: true).includes(:artist).joins(:artist, :songs).page(params[:page])
 		#10ms
 		# @items = @q.result(distinct: true).select('items.*').page(params[:page])
 

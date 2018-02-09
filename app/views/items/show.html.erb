@@ -26,7 +26,7 @@
 								<div class="col-md-12" style="margin-top: 10px;">
 									<p><b>Disk.<%= disk.disk_number %></b></p>
 								</div>
-								<% disk.songs.order(:track_number).each do |song| %>
+								<% disk.songs.includes(:artist).order(:track_number).each do |song| %>
 									<div class="col-md-6">
 										<p>&nbsp;&nbsp;<%= song.track_number %>.<%= song.song_name %></p>
 									</div>
@@ -59,7 +59,7 @@
 							<div class="col-md-4"></div><!-- selectBox調整col -->
 							<!-- selectBox -->
 							<div class="col-md-2 input-lg">
-								<%= f.select :quantity, (0..@item.stock).map{|i| [i, i]} %>
+								<%= f.select :quantity, (1..@item.stock).map{|i| [i, i]} %>
 								<%= f.hidden_field :item_id, value: @item.id, readonly: true %>
 							</div><!-- end selectBox -->
 
