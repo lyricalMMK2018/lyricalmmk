@@ -3,6 +3,7 @@ class CartsController < ApplicationController
 	def index
 		#'注文詳細を入力するための空のフォームを表示'
 		@order = Order.new
+		@carts = current_user.carts.includes(:item, item: :artist)
 	end
 
 	def create

@@ -7,7 +7,7 @@
 		</div>
 	</div><!-- end タイトル　-->
 
-	<% current_user.orders.reverse_order.each do |order| %>
+	<% current_user.orders.includes(:item_orders).reverse_order.each do |order| %>
 		<div class="row" style="margin-top: 20px;">
 			<!-- 購入内容 -->
 			<div class="col-md-12">
@@ -25,7 +25,7 @@
 				<div class="row">
 					<!-- 外枠　-->
 					<div class="col-md-12" style="border: 1px solid #ddd; border-radius: 4px;">
-						<% order.item_orders.each do |item_order| %>
+						<% order.item_orders.includes(:item, item: :artist).each do |item_order| %>
 							<div class="row" style= "margin: 15px auto;">
 								<div class="col-md-3 ">
 									<%= link_to item_path(item_order.item) do %>

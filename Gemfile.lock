@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/activerecord-hackery/ransack.git
-  revision: 8b36204916a0d3c3950cd1fc2e9cdb1f81e61ea5
+  revision: 7dbec585c6760c3ab5a687a007763f2c71f815a3
   specs:
-    ransack (1.8.6)
+    ransack (1.8.7)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
       activesupport (>= 3.0)
@@ -69,7 +69,10 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.3)
-    byebug (9.1.0)
+    bullet (5.7.2)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11.0)
+    byebug (10.0.0)
     capybara (2.17.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -101,12 +104,12 @@ GEM
       activesupport (>= 3.0.0)
     erubi (1.7.0)
     execjs (2.7.0)
-    ffi (1.9.18)
+    ffi (1.9.21)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (0.9.3)
+    i18n (0.9.4)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -159,8 +162,8 @@ GEM
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    pry-byebug (3.5.1)
-      byebug (~> 9.1)
+    pry-byebug (3.6.0)
+      byebug (~> 10.0)
       pry (~> 0.10)
     pry-doc (0.12.0)
       pry (~> 0.9)
@@ -224,9 +227,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    selenium-webdriver (3.8.0)
+    selenium-webdriver (3.9.0)
       childprocess (~> 0.5)
-      rubyzip (~> 1.0)
+      rubyzip (~> 1.2)
     sinatra (2.0.0)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -251,13 +254,14 @@ GEM
     turbolinks (5.1.0)
       turbolinks-source (~> 5.1)
     turbolinks-source (5.1.0)
-    tzinfo (1.2.4)
+    tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.5)
+    uglifier (4.1.6)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.4)
+    unf_ext (0.0.7.5)
+    uniform_notifier (1.11.0)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.5.1)
@@ -277,6 +281,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
+  bullet
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
