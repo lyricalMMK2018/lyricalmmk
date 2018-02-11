@@ -42,10 +42,11 @@ class OrdersController < ApplicationController
 				#在庫から購入数を引く
 				cart.item.stock -= cart.quantity
 				cart.item.save
-				cart.destroy
 			end
-				#-- !Thank you --
-				redirect_to orders_path, notice: 'Thank you for trading with us!'
+			#ここでユーザーのカート情報を一括消去
+			carts.destroy_all
+			#-- !Thank you --
+			redirect_to orders_path, notice: 'Thank you for trading with us!'
 		#Orderフォームバリデーションエラーが出ている場合
 		else
 			redirect_to carts_path, alert: 'Please fill out all of shipping destinations'
